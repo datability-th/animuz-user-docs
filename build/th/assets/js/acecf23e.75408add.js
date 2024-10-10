@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkanimuz_user_docs=self.webpackChunkanimuz_user_docs||[]).push([[1903],{1912:s=>{s.exports=JSON.parse('{"blogBasePath":"/th/blog","blogTitle":"Blog","authorsListPath":"/th/blog/authors"}')}}]);

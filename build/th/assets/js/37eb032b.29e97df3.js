@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkanimuz_user_docs=self.webpackChunkanimuz_user_docs||[]).push([[8871],{5180:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/th/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
