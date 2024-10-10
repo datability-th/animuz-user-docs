@@ -17,7 +17,7 @@ const config: Config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'datability-th', // Usually your GitHub org/user name.
   projectName: 'animuz-user-docs', // Usually your repo name.
-  deploymentBranch: 'deployment',
+  deploymentBranch: 'main',
   trailingSlash: false,
 
   onBrokenLinks: 'throw',
