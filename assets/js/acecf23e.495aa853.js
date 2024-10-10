@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkanimuz_user_docs=self.webpackChunkanimuz_user_docs||[]).push([[903],{1912:s=>{s.exports=JSON.parse('{"blogBasePath":"/animuz-user-docs/blog","blogTitle":"Blog","authorsListPath":"/animuz-user-docs/blog/authors"}')}}]);
