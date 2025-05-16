@@ -82,4 +82,4 @@ sidebar_position: 5
 :::
 
 ## คลิปวิดีโอ สำหรับการทำงานทั้งหมด
-<iframe width="560" height="315" src="https://www.youtube.com/embed/L-n--2yzOmA?si=_D72TZ9uQepgxSUc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rlijAuVf9Fc?si=fyzJSHm3TzRNnRvO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
