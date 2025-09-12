@@ -35,6 +35,35 @@ sidebar_position: 8
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ZP6lWgiMCvo?si=MQQlb5LGOn5N2c4l" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 :::
 
+## คู่มือการทำ Data Source 📘 
+นามสกุลไฟล์ที่แนะนำเป็น .md [Markdown]
+
+การเขียนส่วนหัว ( Header )
+    - สัญญาลักษณ์ "#" = H1 หัวข้อหลัก
+    - สัญญาลักษณ์ "##" = H2 หัวข้อรอง
+    - สัญญาลักษณ์ "###" = H3 หัวข้อย่อย
+
+#### การเขียนรายการ/เรียงลำดับ ( Ordered Lists )
+    1. ขั้นตอนที่ 1
+       1. รายละเอียดภายในขั้นตอนที่ 1
+       2. รายละเอียดภายในขั้นตอนที่ 1
+    2. ขั้นตอนที่ 2
+
+#### การใส่ลิงค์ ( Links )
+`[ข้อความ](URL)`
+
+#### การใส่รูปภาพ ( Images )
+`![ชื่อรูปภาพ](URL)`
+
+#### ตัวอย่างการเขียนจริง
+
+![ตัวอย่างการเขียนจริง](../static/img/write_data_source.png)
+
+[ดาวน์โหลดไฟล์ตัวอย่าง](../static/write_data_source.txt)
+
+:::info[วิดีโอสาธิตการเขียนข้อมูลจริง]
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9rtUNqejWEk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+:::
 
 ## ป้อนอาหาร Rudi 🍗
 
