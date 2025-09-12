@@ -7,7 +7,7 @@ sidebar_position: 11
 :::info
 ⬇️ ดาวน์โหลด Plugin Rudi V2 สำหรับการฝังโค้ดบน WordPress ⬇️
 
-- <a href="../static/rudi-plugin_V2.zip" download>Rudi Plugin V2.Zip</a>
+- [Rudi-Plugin V2.Zip](/downloads/rudi-plugin-V2.zip)
 :::
 
 ### Plugin
