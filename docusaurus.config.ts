@@ -71,7 +71,7 @@ const config: Config = {
       title: 'Rudi ChatDoc',
       logo: {
         alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        src: 'img/logo.gif',
       },
       items: [
         {
