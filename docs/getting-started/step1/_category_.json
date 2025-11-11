@@ -1,0 +1,9 @@
+{
+  "label": "Step 1: Feed Datasource",
+  "position": 2,
+  "collapsed": false,
+  "link": {
+    "type": "doc",
+    "id": "getting-started/step1/index"
+  }
+}
