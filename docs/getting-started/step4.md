@@ -6,7 +6,7 @@ sidebar_position: 5
 
 ขั้นตอนการ Publish
 
-## เลือกการเชื่อมต่อ
+## เพิ่มการเชื่อมต่อ
 
 ![Select](../../static/v2/img/step4/01_select.png)
 
