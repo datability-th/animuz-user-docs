@@ -1,6 +1,7 @@
 {
-  "label": "How to sync 🔗",
+  "label": "How to Connect & Sync 🔗",
   "position": 9,
+  "collapsed": false,
   "link": {
     "type": "generated-index"
   }
