@@ -2,6 +2,6 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Tutorial Intro 👋
 
-มาทำความรู้จัก **Rudi ในเวลาไม่ถึง 5 นาที** กันเถอะ
+มาทำความรู้จัก **Rudi ในเวลาไม่ถึง 5 นาที** กันเถอะ 🐶✨

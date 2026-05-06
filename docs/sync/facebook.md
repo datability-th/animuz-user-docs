@@ -2,9 +2,11 @@
 sidebar_position: 3
 ---
 
-# Facebook Page
+# Facebook Page 📘
 
-### การเชื่อมต่อ Rudi กับ Facebook Page
+เชื่อมต่อ **Rudi** เข้ากับกล่องข้อความ **Messenger** ของ Facebook Page เพื่อให้ตอบลูกค้าได้อัตโนมัติ 💬
+
+### การเชื่อมต่อ Rudi กับ Facebook Page 🔗
 
 1. ไปที่เว็บไซต์ [Rudi Website](https://app.rudi.animuz.ai/app/rudi)
 
@@ -32,7 +34,7 @@ sidebar_position: 3
 
 ![Select Facebook Page](../../static/img/Facebook/select_page_sync.png)
 
-### กรณี Facebook Page อยู่ภายใต้ Business
+### กรณี Facebook Page อยู่ภายใต้ Business 🏢
 
 - หากเพจอยู่ภายใต้ธุรกิจ ให้เลือกใช้ธุรกิจปัจจุบันที่ตรงกับธุรกิจที่เพจอยู่ภายใต้ หรือ เลือกใช้ธุรกิจปัจจุบันและในอนาคต
 
@@ -40,7 +42,7 @@ sidebar_position: 3
 
 ![Select Business Facebook Page](../../static/img/Facebook/business_select.png)
 
-### กรณี Facebook Page ไม่ได้อยู่ภายใต้ Business
+### กรณี Facebook Page ไม่ได้อยู่ภายใต้ Business 👤
 
 ![No Business Facebook Page](../../static/img/Facebook/no_business_page.png)
 
@@ -48,7 +50,7 @@ sidebar_position: 3
 
 ![Select No Business Facebook Page](../../static/img/Facebook/no_business_select.png)
 
-### เชื่อมต่อหลายเพจพร้อมกัน
+### เชื่อมต่อหลายเพจพร้อมกัน 📑
 
 - หากต้องการเชื่อมต่อหลายเพจในครั้งเดียว ให้คลิกเลือกทั้งหมด เพื่อเชื่อมต่อในครั้งเดียว
 
@@ -72,7 +74,7 @@ sidebar_position: 3
 
 ![Change Assistant Success](../../static/img/Facebook/change_assistant_success.png)
 
-## คลิปวิดีโอ สำหรับการเปลี่ยน Assistant
+## คลิปวิดีโอ สำหรับการเปลี่ยน Assistant 🎥
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/09QyTfuqOpM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 :::
@@ -83,6 +85,6 @@ sidebar_position: 3
 
 ![Connect with Facebook Page Messenger](../../static/img/Facebook/result_connect.png)
 
-## คลิปวิดีโอ สำหรับการทำงานทั้งหมด
+## คลิปวิดีโอ สำหรับการทำงานทั้งหมด 🎬
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/5mJqObnKssM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

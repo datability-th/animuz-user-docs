@@ -2,9 +2,9 @@
 sidebar_position: 3
 ---
 
-# Step 2: Organize
+# Step 2: Organize 📚
 
-Rudi ต้องการข้อมูลมาฝึกฝน 🐶
+**Rudi** ต้องการข้อมูลมาฝึกฝน 🐶
 
 ## ขั้นตอนการ Train ไฟล์ 🏃
 

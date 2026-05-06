@@ -2,15 +2,17 @@
 sidebar_position: 10
 ---
 
-# How to embed on SharePoint Site
+# How to embed on SharePoint Site 🟦
 
-## ขั้นตอนการฝังตัว (Embed) Rudi ลงในเว็บไซต์ SharePoint
+ติดตั้ง **Rudi Chat Embed** ลงในเว็บไซต์ **SharePoint** ของคุณ เพื่อให้ทีมและผู้ใช้งานคุยกับ Rudi ได้โดยตรง 💬
 
-### 1. เริ่มต้นสร้างเว็บไซต์ใน SharePoint
+## ขั้นตอนการฝังตัว (Embed) Rudi ลงในเว็บไซต์ SharePoint 🛠️
+
+### 1. เริ่มต้นสร้างเว็บไซต์ใน SharePoint 🌐
 
 ![Create Site SharePoint](../static/img/SharePoint/create_site_SharePoint.png)
 
-### 2. ตั้งค่า Custom Script
+### 2. ตั้งค่า Custom Script ⚙️
 
 เลือกไซต์ที่ต้องการใช้งาน จากนั้นเข้าสู่หน้าการตั้งค่า
 
@@ -20,7 +22,7 @@ sidebar_position: 10
 
 ![Custom Script](../static/img/SharePoint/custom_script.png)
 
-### 3. ตั้งค่า Custom Script อีกครั้ง
+### 3. ตั้งค่า Custom Script อีกครั้ง 🔁
 
 เข้าสู่หน้าการตั้งค่าขั้นสูงโดยใช้ URL ต่อไปนี้:  
 `https://[Tenant_name].sharepoint.com/sites/[Site_name]/_layouts/15/HtmlFieldSecurity.aspx`
@@ -37,7 +39,7 @@ https://databilitycoltd.sharepoint.com/sites/rudi-test-02/SitePages/CollabHome.a
 เมื่อกำหนดค่าเรียบร้อยแล้ว สามารถปิดหน้านี้ได้ทันที
 :::
 
-### 4. เพิ่มเนื้อหาสำหรับ Embed ลงในหน้า SharePoint
+### 4. เพิ่มเนื้อหาสำหรับ Embed ลงในหน้า SharePoint 📥
 
 - คลิก แก้ไข (Edit) ที่มุมขวาบนของหน้า SharePoint
 

@@ -2,15 +2,15 @@
 sidebar_position: 3
 ---
 
-# Contact Details Panel
+# Contact Details Panel 🪪
 
-**Contact Details Panel (รายการแชท)**
+**Contact Details Panel (แผงข้อมูลผู้ติดต่อ)** — รวมข้อมูลและประวัติของลูกค้าแต่ละรายไว้ในที่เดียว เพื่อให้เจ้าหน้าที่ดูแลและติดตามได้สะดวก ✨
 
 ![Contact Details Panel Preview](../../../static/v2/img/details-panel/01_preview.png)
 
 ---
 
-## 1. รายละเอียดการติดต่อ (Contact Detail)
+## 1. รายละเอียดการติดต่อ (Contact Detail) 📇
 
 ![Contact Details](../../../static/v2/img/details-panel/02_contact.png)
 
@@ -29,7 +29,7 @@ sidebar_position: 3
 
 ---
 
-## 2. การจัดการแท็ก (Tag Management)
+## 2. การจัดการแท็ก (Tag Management) 🏷️
 
 ![Tag Preview](../../../static/v2/img/details-panel/05_tag_preview.png)
 
@@ -52,7 +52,7 @@ sidebar_position: 3
 
 ---
 
-## 3. โน๊ตล่าสุด (Latest Note)
+## 3. โน๊ตล่าสุด (Latest Note) 📝
 
 ![Latest Note](../../../static/v2/img/details-panel/08_latest_note.png)
 
@@ -61,7 +61,7 @@ sidebar_position: 3
 
 ---
 
-## 4. แถบนำทาง (Contact navigator)
+## 4. แถบนำทาง (Contact navigator) 🧭
 
 ### 4.1 รายการโน๊ตทั้งหมด (Notes)
 

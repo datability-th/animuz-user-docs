@@ -2,9 +2,11 @@
 sidebar_position: 2
 ---
 
-# LINE Official Account
+# LINE Official Account 💚
 
-### ขั้นตอนการสร้าง Provider บน LINE Developers
+เชื่อมต่อ **Rudi** เข้ากับ **LINE Official Account** ของคุณ เพื่อตอบลูกค้าใน LINE ได้อัตโนมัติ 💬
+
+### ขั้นตอนการสร้าง Provider บน LINE Developers 🛠️
 
 1. ไปที่เว็บไซต์ [LINE Developers](https://developers.line.biz)
 2. คลิกปุ่ม Console
@@ -40,7 +42,7 @@ sidebar_position: 2
 
 ![Create A New Channel](../../static/img/LineOA/create_line_oa.png)
 
-### ขั้นตอนการสร้าง LINE Official Account
+### ขั้นตอนการสร้าง LINE Official Account 📱
 
 6. กรอกข้อมูลของ LINE Official Account ผ่านเว็บไซต์ [LINE Business](https://manager.line.biz/)
 
@@ -48,7 +50,7 @@ sidebar_position: 2
 
 ![Success Create Line OA](../../static/img/LineOA/success_create_line_oa.png)
 
-### ขั้นตอนการเชื่อมต่อ Provider กับ Line Official Account
+### ขั้นตอนการเชื่อมต่อ Provider กับ Line Official Account 🔗
 
 7. กดเลือกบัญชี Line Official Account ที่สร้าง
 
@@ -76,7 +78,7 @@ sidebar_position: 2
 
 ![Open Webhook](../../static/img/LineOA/open_webhook.png)
 
-### ขั้นตอนการสร้าง Access Token
+### ขั้นตอนการสร้าง Access Token 🔑
 
 12. กลับไปที่เว็บไซต์ LINE Developers Console แล้วเลือก Channel ที่สร้างไว้
 
@@ -97,7 +99,7 @@ sidebar_position: 2
 ![Get Access Token](../../static/img/LineOA/coppied_access_token.png)  
 :::
 
-### ขั้นตอนการซิงค์กับ Rudi
+### ขั้นตอนการซิงค์กับ Rudi 🔄
 
 15. ไปที่เว็บไซต์ [Rudi Website](https://app.rudi.animuz.ai/app/rudi)
 16. ไปที่เมนู Sync
@@ -125,6 +127,6 @@ sidebar_position: 2
 
 ![Connect with Line Official Account](../../static/img/LineOA/sync_result.png)
 
-## คลิปวิดีโอ สำหรับการทำงานทั้งหมด
+## คลิปวิดีโอ สำหรับการทำงานทั้งหมด 🎬
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/aU_I4tSANyw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
