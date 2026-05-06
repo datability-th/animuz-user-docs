@@ -1,7 +1,7 @@
 {
   "label": "Step 3: Play & Design",
   "position": 4,
-  "collapsed": false,
+  "collapsed": true,
   "link": {
     "type": "doc",
     "id": "getting-started/step3/index"

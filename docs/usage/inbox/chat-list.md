@@ -2,23 +2,23 @@
 sidebar_position: 1
 ---
 
-# Chat List 🖥️
+# Chat List
 
 **Chat List (รายการแชท)** คือหน้าหลักที่แสดงรายการบทสนทนาทั้งหมดที่ผู้ใช้งาน (เจ้าหน้าที่ หรือ ผู้ใช้) มีอยู่ โดยเป็นเครื่องมือหลักในการจัดระเบียบและเข้าถึงการสนทนาอย่างรวดเร็ว
 
-![Chat List](../../static/v2/img/chat-list/01_preview.png)
+![Chat List](../../../static/v2/img/chat-list/01_preview.png)
 
 ## 1. การค้นหาและฟิลเตอร์ (Search and Filters)
 
-![Search](../../static/v2/img/chat-list/02_search.png)
+![Search](../../../static/v2/img/chat-list/02_search.png)
 
-![Filter Modal](../../static/v2/img/chat-list/03_filter_modal.png)
+![Filter Modal](../../../static/v2/img/chat-list/03_filter_modal.png)
 
 เป็นเครื่องมือที่ช่วยให้ผู้ใช้ **ค้นหาและจำกัด** ขอบเขตของรายการแชทขนาดใหญ่ให้แคบลงอย่างรวดเร็ว
 
 ## 2. การจัดการแชท (Chat Management)
 
-![Chat Management](../../static/v2/img/chat-list/04_manage.png)
+![Chat Management](../../../static/v2/img/chat-list/04_manage.png)
 
 ฟังก์ชันการจัดการที่ช่วยให้ผู้ใช้สามารถดำเนินการกับแชทแต่ละรายการได้โดยตรงจาก List
 
@@ -28,7 +28,7 @@ sidebar_position: 1
 
 ## 4. แถบนำทางหลัก (Main Navigation Tabs)
 
-![Chat Navigator](../../static/v2/img/chat-list/05_nav.png)
+![Chat Navigator](../../../static/v2/img/chat-list/05_nav.png)
 
 แถบนี้ใช้เพื่อ **แบ่งกลุ่มและกรอง** รายการแชทตามประเภทของการสนทนา
 
