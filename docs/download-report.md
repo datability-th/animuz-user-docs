@@ -3,15 +3,17 @@ sidebar_position: 7
 ---
 # Download Report 🐶🗎
 
-## ขั้นตอนการดาวน์โหลดรายงาน
-### คลิกเมนู "Report" 
-#### Step 1. เลือกวันที่เริ่มต้น - วันที่สิ้นสุด
+ดาวน์โหลด **รายงานสรุป** การทำงานของ Rudi ในช่วงเวลาที่เลือก เพื่อนำไปวิเคราะห์ต่อหรือแชร์ให้ทีมได้สะดวก 📊
+
+## ขั้นตอนการดาวน์โหลดรายงาน 📥
+### คลิกเมนู "Report" 🗂️
+#### Step 1. เลือกวันที่เริ่มต้น - วันที่สิ้นสุด 📅
 ![Report](../static/img/report.png)
 
-#### Step 2. เลือกน้อง Rudi ที่ต้องการดู (หากมีน้อง Rudi หลายตัว)
+#### Step 2. เลือกน้อง Rudi ที่ต้องการดู (หากมีน้อง Rudi หลายตัว) 🐕
 ![Report](../static/img/report1.png)
 
-#### Step 3. คลิก "Download"
+#### Step 3. คลิก "Download" ⬇️
 ![Report](../static/img/report-download.png)
 
 
@@ -21,6 +23,6 @@ sidebar_position: 7
 
 :::
 
-### ตัวอย่าง รายงาน
+### ตัวอย่าง รายงาน 📄
 ![Report](../static/img/report-ex.png)
 

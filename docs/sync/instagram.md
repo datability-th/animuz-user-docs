@@ -2,9 +2,11 @@
 sidebar_position: 5
 ---
 
-# Instagram
+# Instagram 📸
 
-### การเชื่อมต่อ Rudi กับ Instagram
+เชื่อมต่อ **Rudi** เข้ากับ **Direct Message** ของ Instagram ธุรกิจของคุณ เพื่อตอบลูกค้าได้อัตโนมัติ 💬
+
+### การเชื่อมต่อ Rudi กับ Instagram 🔗
 
 1. ไปที่เว็บไซต์ [Rudi Website](https://app.rudi.animuz.ai/app/rudi)
 

@@ -2,7 +2,9 @@
 sidebar_position: 11
 ---
 
-# How to embed on WordPress
+# How to embed on WordPress 🟦
+
+ติดตั้ง **Rudi** ลงในเว็บไซต์ **WordPress** ของคุณผ่านปลั๊กอิน Rudi V2 ได้ในไม่กี่ขั้นตอน 🚀
 
 :::info
 ⬇️ ดาวน์โหลด Plugin Rudi V2 สำหรับการฝังโค้ดบน WordPress ⬇️
@@ -10,7 +12,7 @@ sidebar_position: 11
 - [Rudi-Plugin V2.Zip](/downloads/rudi-plugin-V2.zip)
 :::
 
-### Plugin
+### Plugin 🔌
 
 1. เลือก Add New Plugin
 
@@ -36,7 +38,7 @@ sidebar_position: 11
 
 ![Activate Plugin](../static/img/WordPress/activate_plugin.png)
 
-### Rudi Options
+### Rudi Options ⚙️
 
 คลิกที่เมนู Rudi Options
 

@@ -2,11 +2,13 @@
 sidebar_position: 1
 ---
 
-# Website Embed
+# Website Embed 🌐
 
-### ขั้นตอนการสร้าง Website Embed
+สร้าง **Website Embed** เพื่อนำ Rudi ไปติดตั้งบนเว็บไซต์ของคุณในรูปแบบวิดเจ็ตแชท 💬
 
-## 1. Appearance
+### ขั้นตอนการสร้าง Website Embed 🛠️
+
+## 1. Appearance 🎨
 
 ![Appearance](../../static/v2/img/how-to-sync/embed/01_preview.png)
 
@@ -44,7 +46,7 @@ sidebar_position: 1
 
 ---
 
-## 2. Embed Script
+## 2. Embed Script 📜
 
 ![Script](../../static/v2/img/how-to-sync/embed/02_script.png)
 

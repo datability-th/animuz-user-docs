@@ -3,7 +3,9 @@ sidebar_position: 13
 sidebar_label: 🆕How to embed on Shopify
 ---
 
-# How to embed on Shopify
+# How to embed on Shopify 🛍️
+
+ติดตั้ง **Rudi Chat Embed** ในร้านค้า **Shopify** ของคุณ เพื่อช่วยตอบลูกค้าและปิดการขายได้อัตโนมัติ 💬
 
 ### วิธีการติดตั้ง Rudi Chat Embed ในร้านค้าของ Shopify 🟡
 
