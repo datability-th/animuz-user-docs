@@ -2,17 +2,17 @@
 sidebar_position: 3
 ---
 
-# Contact Details Panel 👤
+# Contact Details Panel
 
 **Contact Details Panel (รายการแชท)**
 
-![Contact Details Panel Preview](../../static/v2/img/details-panel/01_preview.png)
+![Contact Details Panel Preview](../../../static/v2/img/details-panel/01_preview.png)
 
 ---
 
 ## 1. รายละเอียดการติดต่อ (Contact Detail)
 
-![Contact Details](../../static/v2/img/details-panel/02_contact.png)
+![Contact Details](../../../static/v2/img/details-panel/02_contact.png)
 
 ### 1.1 ชื่อ (Name)
 
@@ -31,7 +31,7 @@ sidebar_position: 3
 
 ## 2. การจัดการแท็ก (Tag Management)
 
-![Tag Preview](../../static/v2/img/details-panel/05_tag_preview.png)
+![Tag Preview](../../../static/v2/img/details-panel/05_tag_preview.png)
 
 ### 2.1 เพิ่มแท็กใหม่ (Add new tag)
 
@@ -45,7 +45,7 @@ sidebar_position: 3
 
 ### 2.3 การจัดการแท็ก (Tag Management)
 
-![Tag Management](../../static/v2/img/details-panel/04_tag_management.png)
+![Tag Management](../../../static/v2/img/details-panel/04_tag_management.png)
 
 - หน้าต่างสำหรับจัดการรายการแท็กทั้งหมดที่มีในระบบ (สร้างใหม่ หรือ แก้ไขชื่อแท็ก)
 - ช่วยควบคุมมาตรฐานการใช้ชื่อแท็กให้เป็นระเบียบเดียวกันทั้งทีม
@@ -54,7 +54,7 @@ sidebar_position: 3
 
 ## 3. โน๊ตล่าสุด (Latest Note)
 
-![Latest Note](../../static/v2/img/details-panel/08_latest_note.png)
+![Latest Note](../../../static/v2/img/details-panel/08_latest_note.png)
 
 - แสดงข้อความบันทึกล่าสุดที่เจ้าหน้าที่ระบุไว้ เพื่อให้เห็นสถานะปัจจุบันได้ทันที
 - ช่วยลดเวลาในการกดเข้าไปดูประวัติทั้งหมด หากต้องการทราบเพียงความคืบหน้าล่าสุด
@@ -65,14 +65,14 @@ sidebar_position: 3
 
 ### 4.1 รายการโน๊ตทั้งหมด (Notes)
 
-![Notes Tab](../../static/v2/img/details-panel/06_notes.png)
+![Notes Tab](../../../static/v2/img/details-panel/06_notes.png)
 
 - รวบรวมประวัติการบันทึกข้อความ (Note) ทั้งหมดของลูกค้ารายนี้ตั้งแต่อดีตจนถึงปัจจุบัน
 - ช่วยให้ทีมงานสามารถติดตามเรื่องราว ปัญหา หรือความต้องการของลูกค้าได้อย่างต่อเนื่อง
 
 ### 4.2 รายการกิจกรรมทั้งหมด (Activities)
 
-![Activities Tab](../../static/v2/img/details-panel/07_activities.png)
+![Activities Tab](../../../static/v2/img/details-panel/07_activities.png)
 
 - แสดงไทม์ไลน์กิจกรรมที่เกิดขึ้นกับข้อมูลลูกค้า (System Log) เช่น การสร้างรายการ, การเปลี่ยนสถานะ
 - ใช้สำหรับตรวจสอบประวัติการทำงานและการเปลี่ยนแปลงข้อมูลย้อนหลังเพื่อความโปร่งใส
