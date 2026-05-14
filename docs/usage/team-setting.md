@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4E
+sidebar_position: 4
 sidebar_label: Team Settings ⚙️
 ---
 
