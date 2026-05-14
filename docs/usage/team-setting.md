@@ -1,6 +1,6 @@
 ---
-sidebar_position: 4
-sidebar_label: 🆕Team Settings ⚙️
+sidebar_position: 4E
+sidebar_label: Team Settings ⚙️
 ---
 
 # Team Settings ⚙️
@@ -8,7 +8,7 @@ sidebar_label: 🆕Team Settings ⚙️
 หน้า **Team Settings** ใช้สำหรับตั้งค่าข้อมูลทีม เชิญสมาชิกเข้าร่วม และจัดการสิทธิ์ของสมาชิกแต่ละคนภายในทีม 👥
 
 ![Team Settings](../../static/v2/img/team-setting/00_preview.png)
-
+W
 ---
 
 ## 1. Setting 🛠️
