@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+title: LINE Official Account
 ---
 
 # LINE Official Account 💚

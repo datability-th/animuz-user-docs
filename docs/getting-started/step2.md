@@ -1,5 +1,6 @@
 ---
 sidebar_position: 3
+title: "Step 2: Organize"
 ---
 
 # Step 2: Organize 📚

@@ -1,3 +1,7 @@
+---
+title: "Step 3: Play & Design"
+---
+
 # Step 3: Play & Design 🎨
 
 ปรับแต่ง **บุคลิก** และเพิ่มประสิทธิภาพให้น้อง Rudi กัน! 🐶

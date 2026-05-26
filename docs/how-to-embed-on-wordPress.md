@@ -1,5 +1,6 @@
 ---
 sidebar_position: 11
+title: How to embed on WordPress
 ---
 
 # How to embed on WordPress 🟦

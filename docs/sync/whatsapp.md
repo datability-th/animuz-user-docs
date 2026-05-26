@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
-sidebar_label: WhatsApp Business 📞
+sidebar_label: WhatsApp Business
+title: WhatsApp Business
 ---
 
 # WhatsApp Business 📞

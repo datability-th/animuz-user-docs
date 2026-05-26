@@ -1,6 +1,7 @@
 ---
 sidebar_position: 13
 sidebar_label: How to embed on Shopify
+title: How to embed on Shopify
 ---
 
 # How to embed on Shopify 🛍️

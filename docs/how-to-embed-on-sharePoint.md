@@ -1,5 +1,6 @@
 ---
 sidebar_position: 10
+title: How to embed on SharePoint Site
 ---
 
 # How to embed on SharePoint Site 🟦

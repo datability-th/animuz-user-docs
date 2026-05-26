@@ -1,5 +1,6 @@
 ---
 sidebar_position: 12
+title: How to embed on Wix
 ---
 
 # How to embed on Wix 🟧

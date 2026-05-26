@@ -1,5 +1,6 @@
 ---
 sidebar_position: 5
+title: "Step 4: Publish"
 ---
 
 # Step 4: Publish 🚀

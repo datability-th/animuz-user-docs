@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+title: Chat List
 ---
 
 # Chat List 💬

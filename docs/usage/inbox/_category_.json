@@ -1,7 +1,7 @@
 {
-  "label": "Inbox 💬",
+  "label": "Inbox",
   "position": 2,
-  "collapsed": true,
+  "collapsed": false,
   "link": {
     "type": "generated-index"
   }

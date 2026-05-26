@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 sidebar_label: 🆕Web Search Tool
+title: Web Search Tool
 ---
 
 # 🌐 Web Search Tool

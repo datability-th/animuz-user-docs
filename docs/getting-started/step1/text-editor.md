@@ -1,3 +1,7 @@
+---
+title: Text Editor Usage
+---
+
 # Text Editor Usage ✏️
 
 **Text Editor (หน้าต่างแก้ไขข้อความ)**

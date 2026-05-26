@@ -1,5 +1,6 @@
 ---
 sidebar_position: 7
+title: Download Report
 ---
 # Download Report 🐶🗎
 

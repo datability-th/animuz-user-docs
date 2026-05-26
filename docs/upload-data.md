@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 draft: true
+title: Update & Cancel Data
 ---
 
 # Update & Cancel Data ♨️

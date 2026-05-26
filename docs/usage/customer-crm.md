@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
-sidebar_label: Customer CRM 👥
+sidebar_label: Customer CRM
+title: Customer CRM
 ---
 
 # Customer CRM 👥
