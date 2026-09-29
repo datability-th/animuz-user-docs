@@ -6,6 +6,10 @@ title: Web Search Tool
 
 # 🌐 Web Search Tool
 
+:::info
+Web Search ตอนนี้เป็น plugin ในตัว (built-in) เปิดให้ทุกทีมอัตโนมัติ — เปิด/ปิดหรือเลือกผู้ช่วยที่ใช้ได้จาก [เลือกเครื่องมือให้แต่ละผู้ช่วย](../../plugins/choose-tools-for-an-assistant.md) ส่วนขั้นตอนตั้งค่า Domain URLs ด้านล่างนี้ยังใช้งานได้เหมือนเดิม
+:::
+
 ## 🔌 1. วิธีการเชื่อมต่อเครื่องมือ Web Search
 
 วิธีเชื่อมต่อสามารถทำได้ **2 ทาง** คือ ผ่านแท็บ **Step 1: Feed Data Source** และ **Step 3: Play & Design**
