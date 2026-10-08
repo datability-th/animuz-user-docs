@@ -12,6 +12,8 @@ title: ตั้งค่า Doctor Leave และ Appointments
 :::note อยู่ระหว่างทยอยเปิดใช้
 เมนู **Plugins** ยังเปิดให้ทีละทีม ถ้าไม่เห็นไอคอนถุงที่แถบซ้าย ให้แจ้ง Datability เปิดให้ทีมคุณ
 ภาพประกอบมาจากทีมสาธิตที่ใช้ข้อมูลสมมติ
+
+Doctor Leave อ่านจาก feed วันลาเพียงแบบเดียวที่ Datability สร้างไว้ ถ้าระบบวันลาของโรงพยาบาลคุณต่างออกไป ให้ถาม Datability ก่อนเริ่ม
 :::
 
 ## ก่อนเริ่ม
@@ -49,11 +51,11 @@ title: ตั้งค่า Doctor Leave และ Appointments
 - แถวที่ชื่อหรือตารางว่างจะถูกข้าม ตารางที่เขียนเป็นวันภาษาอังกฤษ **อ่านไม่ได้**
 - `.xlsx` อ่านเฉพาะ **ชีตแรก** (ไม่รองรับ `.xls` ให้บันทึกเป็น `.xlsx`) ส่วน `.csv` ต้องเป็น UTF-8 (ใน Excel: Save As → CSV UTF-8 ไม่เช่นนั้นภาษาไทยเพี้ยน) ขนาดไม่เกิน 25 MB
 
-อัปโหลดไฟล์ที่ **Feed Datasource** (ขั้นแรกของผู้ช่วย) พาธของไฟล์ **ขึ้นต้นด้วย `txt/` เสมอ** (ในหน้าจอไม่แสดง): ไฟล์ในโฟลเดอร์ `doctors` คือ `txt/doctors/schedule.xlsx` ไฟล์ระดับบนสุดคือ `txt/schedule.xlsx` ถ้าจะเปลี่ยนตาราง ให้ลบไฟล์เก่าใน Feed Datasource แล้วอัปโหลดไฟล์ใหม่ชื่อและพาธเดิม
+อัปโหลดไฟล์ที่ **Feed Datasource** (ขั้นแรกของผู้ช่วย) ง่ายที่สุด: อัปโหลดที่ระดับบนสุด ไม่ต้องสร้างโฟลเดอร์ พาธจะเป็น `txt/schedule.xlsx` (ทุกพาธ **ขึ้นต้นด้วย `txt/`** ซึ่งหน้าจอไม่แสดง) ถ้าวางในโฟลเดอร์ที่สร้างเอง ให้ใส่ชื่อโฟลเดอร์ด้วย เช่น `txt/doctors/schedule.xlsx` ถ้าจะเปลี่ยนตาราง ให้ลบไฟล์เก่าใน Feed Datasource แล้วอัปโหลดไฟล์ใหม่ชื่อและพาธเดิม
 
 ## 3. เพิ่ม Doctor Leave
 
-1. เปิด **Plugins → Marketplace** ที่หมวด **Shared with you** เปิด **Kasemrad Doctor Leave** (เรียกว่า Doctor Leave) plugin นี้อ่านข้อมูลจาก feed วันลาของ Kasemrad โรงพยาบาลอื่นต้องขอ plugin วันลาของตัวเองจาก Datability
+1. เปิด **Plugins → Marketplace** ที่หมวด **Shared with you** เปิด **Doctor Leave**
 2. ดูรายการ **Tools**: `get_doctor_leave` เป็น Read only (อ่านวันลาอย่างเดียว)
 3. วาง **Doctor feed token** ที่ได้จาก IT โรงพยาบาล ระบบเก็บแบบเข้ารหัสและจะไม่แสดงให้เห็นอีก
 4. ที่ **Use in** ติ๊กผู้ช่วยที่จะใช้ **All assistants** ครอบคลุมผู้ช่วยที่สร้างทีหลังด้วย (**Also new assistants**)
@@ -70,7 +72,7 @@ title: ตั้งค่า Doctor Leave และ Appointments
    - `get_my_bookings` (Read only): คำขอจองของแชทนี้
    - `request_booking` (**Mutation**): ส่งคำขอสถานะ **pending** ให้โรงพยาบาล ไม่เคยยืนยันการจองเอง เจ้าหน้าที่ยืนยันภายหลัง
 2. กรอก 2 ช่อง (ดู[ข้อจำกัดในปัจจุบัน](#ข้อจำกัดในปัจจุบัน)):
-   - **Clinic hours file**: พาธจากขั้น 2 เช่น `txt/doctors/schedule.xlsx`
+   - **Clinic hours file**: พาธจากขั้น 2 เช่น `txt/schedule.xlsx`
    - **Doctor leave source**: `<plugin id>.get_doctor_leave` เปิด Doctor Leave จาก **Marketplace → Shared with you** (ไม่ใช่จาก My plugins) แล้วคัดลอกส่วนที่ตามหลัง `/detail/` ในแถบที่อยู่: `…/plugins/detail/<plugin id>`
 3. เลือก **Use in** แล้วกด **Add**
 
@@ -78,7 +80,7 @@ title: ตั้งค่า Doctor Leave และ Appointments
 
 ## 5. รอ Datability ยืนยัน
 
-Appointments เป็น plugin ที่ Datability โฮสต์ หลังกด **Add** จะขึ้น **Waiting for verification** และเครื่องมือยังปิดอยู่ Datability จะตั้งค่าความปลอดภัยครั้งเดียวให้เสร็จ จากนั้นกด **Check again** เมื่อผ่านแล้วป้ายจะเปลี่ยนเป็น **Connected**
+Appointments เป็น plugin ที่ Datability โฮสต์ หลังกด **Add** จะขึ้น **Waiting for verification** และเครื่องมือยังปิดอยู่ Datability จะตั้งค่าความปลอดภัยครั้งเดียวให้เสร็จและแจ้งคุณเมื่อเสร็จ จากนั้นกด **Check again** (กดก่อนหน้านั้นก็ไม่เสียหาย) เมื่อผ่านแล้วป้ายจะเปลี่ยนเป็น **Connected**
 
 ![ขั้น 5](../../static/img/plugins/self-serve/06-pending-verification.png)
 
@@ -99,7 +101,7 @@ Appointments เป็น plugin ที่ Datability โฮสต์ หลั�
 
 ## 7. ทดสอบใน Playground
 
-ที่ Step 3 ใช้แท็บ **Playground** ด้านขวา ลองถาม:
+ที่ Step 3 ใช้แท็บ **Playground** ด้านขวา ลองถาม (เปลี่ยนชื่อแพทย์และแผนกเป็นชื่อในไฟล์ของคุณเอง ตัวอย่างนี้ใช้แถวตัวอย่างด้านบน):
 
 | ถาม | ควรได้ |
 |---|---|
