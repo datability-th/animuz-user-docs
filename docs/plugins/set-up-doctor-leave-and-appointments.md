@@ -31,7 +31,7 @@ Sign in to the Rudi dashboard and choose your team in the top bar. Everything be
 
 ## 2. Prepare the doctor schedule file
 
-One row per doctor. Row 1 must be the headers, **spelled exactly** like this (other columns are ignored):
+One row per doctor. Row 1 must be the headers, **spelled exactly** like this, no extra spaces (other columns are ignored). Name and schedule are required; department is optional:
 
 | รายชื่อแพทย์ | แผนกการรักษา | ตารางเวลาออกตรวจ |
 |---|---|---|
@@ -44,12 +44,12 @@ One row per doctor. Row 1 must be the headers, **spelled exactly** like this (ot
 Rules the system follows:
 
 - **Doctor name** (`รายชื่อแพทย์`): titles such as นพ. พญ. ทพ. ทพญ. นายแพทย์ แพทย์หญิง Dr. are ignored when matching. The name must match your leave feed's name once titles are removed.
-- **Schedule** (`ตารางเวลาออกตรวจ`): **Thai weekday names** (จันทร์ อังคาร พุธ พฤหัสบดี ศุกร์ เสาร์ อาทิตย์), each followed by a time range `HH.MM-HH.MM` (`:` also works). Separate with `|`, `,`, `/` or a new line. Several ranges per day are fine. Add `(สัปดาห์ที่ 1 3 5)` to limit a line to those weeks of the month.
+- **Schedule** (`ตารางเวลาออกตรวจ`): **Thai weekday names** (จันทร์ อังคาร พุธ พฤหัสบดี ศุกร์ เสาร์ อาทิตย์), each followed by a time range `HH.MM-HH.MM` (`:` also works). Separate with `|`, `,`, `/` or a new line. Several ranges per day are fine. Write **one day per entry**: ranges (จันทร์-ศุกร์), abbreviations (จ. พ.) and "และ" between times are **not** read, and a range silently keeps only its last day. Add `(สัปดาห์ที่ 1 3 5)` to limit a line to the 1st, 3rd and 5th time that weekday occurs in the month (days 1-7, 15-21, 29-31), not calendar weeks. An overnight range (20.00-08.00) counts only until 23:59.
 - **Department**: written after the time, in front of the weekday (`ทันตกรรมวันพุธ`), or taken from `แผนกการรักษา`.
 - A row with an empty name or empty schedule is skipped. A schedule written in English weekdays is **not** read.
-- `.xlsx`: only the **first sheet** is read. `.csv`: UTF-8.
+- `.xlsx`: only the **first sheet** is read (`.xls` is not supported: save as `.xlsx`). `.csv`: must be UTF-8 (in Excel: Save As → CSV UTF-8, or Thai text breaks). Max 25 MB.
 
-Upload the file in **Feed Datasource** (step 1 of your assistant) and note its path: folder name, then file name, e.g. `doctors/schedule.xlsx`.
+Upload the file in **Feed Datasource** (step 1 of your assistant). Its path **always starts with `txt/`** (not shown in the tree): a file inside folder `doctors` is `txt/doctors/schedule.xlsx`; a file at the top level is `txt/schedule.xlsx`. To change the schedule later, delete the old file in Feed Datasource and upload the new one under the same name and path.
 
 ## 3. Add Doctor Leave
 
@@ -70,8 +70,8 @@ Leave data is refreshed twice a day (06:00 and 18:00, Bangkok time), so a leave 
    - `get_my_bookings` (Read only): this chat's own booking requests.
    - `request_booking` (**Mutation**): sends a **pending** request to the hospital. It never confirms a booking; staff confirm afterwards.
 2. Fill the two fields (see [Known limitations](#known-limitations-today)):
-   - **Clinic hours file**: the path from step 2, e.g. `doctors/schedule.xlsx`.
-   - **Doctor leave source**: `<plugin id>.get_doctor_leave`. The plugin id is the last part of the Doctor Leave page address, `…/plugins/detail/<plugin id>`.
+   - **Clinic hours file**: the path from step 2, e.g. `txt/doctors/schedule.xlsx`.
+   - **Doctor leave source**: `<plugin id>.get_doctor_leave`. Open Doctor Leave from **Marketplace → Shared with you** (not from My plugins) and copy what follows `/detail/` in the address bar: `…/plugins/detail/<plugin id>`.
 3. Choose **Use in**, then **Add**.
 
 ![Step 4](../../static/img/plugins/self-serve/03-add-appointments.png)
@@ -88,7 +88,7 @@ Check both plugins any time in **Plugins → My plugins** (version, health, whic
 
 ## 6. Turn them on for the assistant
 
-Open your assistant → **Step 3: Play & Design** → **Equipped tools → Plugins**. Switch **Doctor Leave** and **Appointments** on. Click a plugin's name to see its tools and risk.
+Open your assistant → **Step 3: Play & Design** → **Equipped tools → Plugins**. Check that the **Doctor Leave** and **Appointments** switches are on (they already are if you ticked **Use in**; Appointments stays off until verified). Click a plugin's name to see its tools and risk.
 
 ![Step 6](../../static/img/plugins/self-serve/07-step3-plugins.png)
 
@@ -106,20 +106,21 @@ In Step 3, use the **Playground** tab on the right. Try:
 | "Is Dr. Wilai free this Friday?" / "พญ.วิไลว่างวันศุกร์นี้ไหม" | Available windows, e.g. 08:00-12:00 |
 | "What is on for the Dentistry department next week?" | Windows per dentist |
 | "Is Dr. Somsak working on Wednesday 14 October?" | On leave if the feed lists it; the answer separates *no clinic that day* from *on leave* |
-| "Book Dr. Wilai on Friday morning" | Asks for the patient's ID number, then says the request was **received** and the hospital will confirm |
+| "Book Dr. Wilai on Friday morning" (a date at least one half-day ahead, doctor's exact name) | Asks for the patient's ID number, then says the request was **received** and the hospital will confirm; otherwise a polite refusal |
 | "What are my bookings?" | Lists this chat's requests as pending/confirmed/rejected |
 
-Only the last 4 characters of an ID number are stored. Use test data, not a real patient's.
+A booking request is a real pending record: hospital staff may see it in their LINE digest. Tell Datability before testing bookings. The booking keeps only the last 4 characters of the ID number, but the chat itself still contains what was typed. Use test data, not a real patient's.
 
 ## Troubleshooting
+
+In the chat, the assistant may paraphrase errors, so the wording can differ from the table.
 
 | You see | Meaning | Fix |
 |---|---|---|
 | **Couldn't connect** when adding | The upstream rejected the token | Re-check the token with hospital IT |
 | **Waiting for verification** for long | Datability has not set the secure key yet | Send the support details below |
-| Plugin badge **Down** (red) | Token rejected or service stopped; tools are hidden | Press the red button on the plugin page and re-enter the connection |
-| **Blocked** | Datability recalled that version | Upgrade as the banner says |
-| "Appointments is not configured" | Clinic hours file or leave source field is empty | Fill both fields |
+| Plugin badge **Down** (red) | Token rejected or service stopped; tools are hidden | Get a fresh token from hospital IT and send it to Datability (the red **Update connection** button does not work yet) |
+| **Update available** | A newer version exists | Ask Datability to upgrade |
 | "could not fetch clinic hours" | Wrong path, or the file is not in your documents | Re-check the path in Feed Datasource |
 | "could not fetch doctor leave" | Doctor Leave is not added, is Down, or the id is wrong | Check **My plugins**; re-enter `<plugin id>.get_doctor_leave` |
 | "No doctor matching … Did you mean" | Name differs from the file | Use a suggested name or fix the file |
@@ -133,6 +134,7 @@ Only the last 4 characters of an ID number are stored. Use test data, not a real
 - Plugins cannot be added from a public catalogue; Datability shares them first.
 - Appointments needs Datability's one-time verification.
 - Tools cannot be switched off one by one; `@` does not list plugin tools.
+- The red **Update connection** button on a Down plugin does nothing yet.
 
 ## If you are stuck, send Datability
 
