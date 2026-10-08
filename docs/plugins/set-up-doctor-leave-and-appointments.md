@@ -47,7 +47,7 @@ Rules the system follows:
 
 - **Doctor name** (`รายชื่อแพทย์`): titles such as นพ. พญ. ทพ. ทพญ. นายแพทย์ แพทย์หญิง Dr. are ignored when matching. The name must match your leave feed's name once titles are removed.
 - **Schedule** (`ตารางเวลาออกตรวจ`): **Thai weekday names** (จันทร์ อังคาร พุธ พฤหัสบดี ศุกร์ เสาร์ อาทิตย์), each followed by a time range `HH.MM-HH.MM` (`:` also works). Separate with `|`, `,`, `/` or a new line. Several ranges per day are fine. Write **one day per entry**: ranges (จันทร์-ศุกร์), abbreviations (จ. พ.) and "และ" between times are **not** read, and a range silently keeps only its last day. Add `(สัปดาห์ที่ 1 3 5)` to limit a line to the 1st, 3rd and 5th time that weekday occurs in the month (days 1-7, 15-21, 29-31), not calendar weeks. An overnight range (20.00-08.00) counts only until 23:59.
-- **Department**: written after the time, in front of the weekday (`ทันตกรรมวันพุธ`), or taken from `แผนกการรักษา`.
+- **Department**: written after the time, in front of the weekday (`ทันตกรรมวันพุธ`), or taken from `แผนกการรักษา`. If both are empty, the doctor is found by name but skipped in department questions.
 - A row with an empty name or empty schedule is skipped. A schedule written in English weekdays is **not** read.
 - `.xlsx`: only the **first sheet** is read (`.xls` is not supported: save as `.xlsx`). `.csv`: must be UTF-8 (in Excel: Save As → CSV UTF-8, or Thai text breaks). Max 25 MB.
 
@@ -101,7 +101,7 @@ Open your assistant → **Step 3: Play & Design** → **Equipped tools → Plugi
 
 ## 7. Test in the Playground
 
-In Step 3, use the **Playground** tab on the right. Try (replace the doctor and department names with ones from your own file; the examples assume the sample rows above):
+In Step 3, use the **Playground** tab on the right. Type names exactly as written in your file (the sample doctors are Thai, so use their Thai names). Try (replace the doctor and department names with ones from your own file; the examples assume the sample rows above):
 
 | Ask | Expect |
 |---|---|
