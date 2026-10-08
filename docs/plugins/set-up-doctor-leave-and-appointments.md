@@ -12,6 +12,8 @@ Time: about 20 minutes. Who: a team admin. ภาษาไทย: [ตั้ง�
 :::note Preview
 The **Plugins** menu is still rolling out. If you do not see the bag icon in the left bar, ask Datability to switch it on for your team.
 Screenshots below are from a demo team with made-up data.
+
+Doctor Leave reads the one leave feed Datability built it for. If your hospital's leave system is different, ask Datability before you start.
 :::
 
 ## Before you start
@@ -36,10 +38,10 @@ One row per doctor. Row 1 must be the headers, **spelled exactly** like this, no
 | รายชื่อแพทย์ | แผนกการรักษา | ตารางเวลาออกตรวจ |
 |---|---|---|
 | นพ.สมศักดิ์ ทดสอบวงศ์ | อายุรกรรม | วันจันทร์ \| 09.00-12.00 น. \| วันพุธ \| 13.00-16.00 น. |
-| พญ.วิไล ตัวอย่างดี | กุมารเวชกรรม | วันอังคาร 08.00-12.00 น. ⏎ วันศุกร์ 08.00-12.00 น. |
+| พญ.วิไล ตัวอย่างดี | กุมารเวชกรรม | วันอังคาร 08.00-12.00 น. \| วันศุกร์ 08.00-12.00 น. |
 | ทพ.ประเสริฐ สมมติ | ทันตกรรม | ทันตกรรมวันพุธ \| 09.00-18.00 น. \| ทันตกรรมวันพฤหัสบดี \| 09.00-18.00 น. |
 
-(All names are invented. ⏎ = a line break inside the cell.)
+(All names are invented.)
 
 Rules the system follows:
 
@@ -49,11 +51,11 @@ Rules the system follows:
 - A row with an empty name or empty schedule is skipped. A schedule written in English weekdays is **not** read.
 - `.xlsx`: only the **first sheet** is read (`.xls` is not supported: save as `.xlsx`). `.csv`: must be UTF-8 (in Excel: Save As → CSV UTF-8, or Thai text breaks). Max 25 MB.
 
-Upload the file in **Feed Datasource** (step 1 of your assistant). Its path **always starts with `txt/`** (not shown in the tree): a file inside folder `doctors` is `txt/doctors/schedule.xlsx`; a file at the top level is `txt/schedule.xlsx`. To change the schedule later, delete the old file in Feed Datasource and upload the new one under the same name and path.
+Upload the file in **Feed Datasource** (step 1 of your assistant). Simplest: upload it at the top level, no folder. Its path is then `txt/schedule.xlsx` (every path **starts with `txt/`**, which the tree does not show). If you put it in a folder you created, add the folder name: `txt/doctors/schedule.xlsx`. To change the schedule later, delete the old file in Feed Datasource and upload the new one under the same name and path.
 
 ## 3. Add Doctor Leave
 
-1. Open **Plugins → Marketplace**. Under **Shared with you**, open **Kasemrad Doctor Leave** (called Doctor Leave below). It reads Kasemrad's leave feed; another hospital needs its own leave plugin from Datability.
+1. Open **Plugins → Marketplace**. Under **Shared with you**, open **Doctor Leave**.
 2. Read the **Tools** list: `get_doctor_leave` is read-only (it only reads leave dates).
 3. Paste the **Doctor feed token** from your hospital IT. It is stored encrypted and never shown again.
 4. Under **Use in**, tick the assistant(s) that should use it. **All assistants** also covers assistants you create later (**Also new assistants**).
@@ -70,7 +72,7 @@ Leave data is refreshed twice a day (06:00 and 18:00, Bangkok time), so a leave 
    - `get_my_bookings` (Read only): this chat's own booking requests.
    - `request_booking` (**Mutation**): sends a **pending** request to the hospital. It never confirms a booking; staff confirm afterwards.
 2. Fill the two fields (see [Known limitations](#known-limitations-today)):
-   - **Clinic hours file**: the path from step 2, e.g. `txt/doctors/schedule.xlsx`.
+   - **Clinic hours file**: the path from step 2, e.g. `txt/schedule.xlsx`.
    - **Doctor leave source**: `<plugin id>.get_doctor_leave`. Open Doctor Leave from **Marketplace → Shared with you** (not from My plugins) and copy what follows `/detail/` in the address bar: `…/plugins/detail/<plugin id>`.
 3. Choose **Use in**, then **Add**.
 
@@ -78,7 +80,7 @@ Leave data is refreshed twice a day (06:00 and 18:00, Bangkok time), so a leave 
 
 ## 5. Wait for Datability to verify
 
-Appointments is a hosted plugin: after **Add** it shows **Waiting for verification** and its tools stay off. Datability finishes a one-time secure setup, then you press **Check again**. Once it passes, the badge changes to **Connected**.
+Appointments is a hosted plugin: after **Add** it shows **Waiting for verification** and its tools stay off. Datability finishes a one-time secure setup and will tell you when it is done; then you press **Check again** (pressing it earlier is harmless). Once it passes, the badge changes to **Connected**.
 
 ![Step 5](../../static/img/plugins/self-serve/06-pending-verification.png)
 
@@ -99,7 +101,7 @@ Open your assistant → **Step 3: Play & Design** → **Equipped tools → Plugi
 
 ## 7. Test in the Playground
 
-In Step 3, use the **Playground** tab on the right. Try:
+In Step 3, use the **Playground** tab on the right. Try (replace the doctor and department names with ones from your own file; the examples assume the sample rows above):
 
 | Ask | Expect |
 |---|---|
