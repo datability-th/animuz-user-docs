@@ -10,7 +10,7 @@ title: ตั้งค่า Doctor Leave และ Appointments
 เวลา: ประมาณ 20 นาที ผู้ทำ: แอดมินของทีม English: [Set up Doctor Leave and Appointments](./set-up-doctor-leave-and-appointments.md)
 
 :::note อยู่ระหว่างทยอยเปิดใช้
-เมนู **Plugins** เปิดเป็นรายทีม ถ้าไม่เห็นไอคอนถุงที่แถบซ้าย ให้แจ้ง Datability เปิดให้ทีมคุณ (ตั้งค่าครั้งเดียว ไม่ต้องรอ)
+เมนู **Plugins** เปิดเป็นรายทีม ถ้าไม่เห็นไอคอนถุงที่แถบซ้าย ให้แจ้ง Datability เปิดให้ทีมคุณ
 ภาพประกอบมาจากทีมสาธิตที่ใช้ข้อมูลสมมติ
 
 Doctor Leave อ่านจาก feed วันลาเพียงแบบเดียวที่ Datability สร้างไว้ ถ้าระบบวันลาของโรงพยาบาลคุณต่างออกไป ให้ถาม Datability ก่อนเริ่ม

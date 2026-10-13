@@ -60,14 +60,22 @@ tools:
 
 - `kind: change_data` tools always ask the user to confirm and are shown with a **Mutation** badge.
 - `type: file | folder | tool` in `configSchema` become the pickers on the Add page, and the picked value becomes the **scope** of the call token: your plugin can read that file and call that one tool, nothing else.
-- Check it: `rudi plugin validate`. Try it against your real server: `rudi plugin test get_doctor_schedule`.
+- Check it: `rudi plugin validate .` (the folder holding `plugin.yaml`). `rudi plugin test <tool> .` calls your real endpoint (config via `--config` or `RUDI_PLUGIN_*`; a `change_data` tool also needs `--allow-write`). See the signing caveat in step 3.
 
 ## 2. Build the server
 
 Any language. It must answer three JSON-RPC methods over HTTPS POST, and return 202 for the `notifications/initialized` notification. Appointments is a Python Lambda behind a Function URL; the core is:
 
 ```python
+import base64, json
 from rudi_plugin_sdk import RudiApiError, rudi, verify
+
+# Yours to write: respond(), error(), result(), TOOL_DEFINITIONS, run_tool(), SIGNING_SECRET,
+# PLATFORM_API_URL (the Platform API base URL Datability gives you; Appointments reads it from an env var).
+
+def read_body(event):  # Function URLs may base64-encode the body: decode BEFORE verifying
+    body = event.get("body") or ""
+    return base64.b64decode(body) if event.get("isBase64Encoded") else body.encode("utf-8")
 
 def handler(event, context=None):
     headers, raw_body = event["headers"], read_body(event)      # the EXACT bytes received
@@ -81,7 +89,7 @@ def handler(event, context=None):
 def dispatch(rpc, headers):
     method, params = rpc["method"], rpc.get("params") or {}
     if method == "initialize":
-        return result(rpc["id"], {"protocolVersion": "...", "capabilities": {"tools": {}},
+        return result(rpc["id"], {"protocolVersion": "2025-06-18", "capabilities": {"tools": {}},
                                   "serverInfo": {"name": "my-plugin", "version": "1.0.0"}})
     if method == "tools/list":
         return result(rpc["id"], {"tools": TOOL_DEFINITIONS})    # the same tools as plugin.yaml
@@ -111,9 +119,9 @@ SDKs live in the `rudi-mcp` repo: `sdk/plugin-sdk-py` (`rudi_plugin_sdk`) and `s
 ## 3. Signing and `verifiesSignature`
 
 - `Rudi-Signature: t=<unix seconds>,v1=<hex HMAC-SHA256>` over `"<t>." + raw body bytes`. `verify()` checks the HMAC (constant time) and rejects a timestamp more than 5 minutes off. Always verify the **raw bytes**, before any JSON re-encoding.
-- Rudi mints the **signing secret** when a team adds your plugin and returns it **once**, base64-encoded (32 bytes). Pass that exact string to `verify()`; do not decode it yourself. Store it as a secret on your server (Appointments reads it from an SSM SecureString).
-- Because your server verifies every request, it cannot pass Add's pre-install connection check with a secret it has not received yet. Setting **`verifiesSignature: true`** tells Rudi to skip that check: the install is saved as **Waiting for verification** with the tools off. You store the secret, then the team presses **Check again**; Rudi sends a signed test call and flips the plugin to **Connected**.
-- Today that hand-off is manual for Datability-hosted plugins (an operator stores the secret and redeploys). A plugin you run yourself does the same with your own secret store. Leave `verifiesSignature` off only if your server does not verify signatures, which we do not recommend.
+- Rudi mints a **signing secret per installation** (each team that adds your plugin gets its own) and returns it **once**, base64-encoded (32 bytes), in the Add response. The dashboard does not display it. Pass the exact string to `verify()`; do not decode it yourself. Your server must hold one secret per installation, and **self-service delivery of that secret to a plugin author does not exist yet** (tracked in rudi#504, M1.5): for Datability-hosted plugins an operator stores it (Appointments reads it from an SSM SecureString) and redeploys; if you host your own, ask Datability to relay it.
+- Because your server verifies every request, it cannot pass Add's pre-install connection check with a secret it has not received yet. Setting **`verifiesSignature: true`** tells Rudi to skip that check: the install is saved as **Waiting for verification** with the tools off. Once the secret is stored, the team presses **Check again**; Rudi re-runs its connection check, signed with that secret, and the plugin becomes **Connected** when it passes.
+- **Known gap:** `rudi plugin publish` (for `runtime: mcp`) and `rudi plugin test` call your server's `initialize` and `tools/list` **without** a signature, so a server that rejects every unsigned call will fail them. Either let those two metadata methods through unsigned on a staging build (never `tools/call`), or ask Datability to publish for you. This is a workaround, not what Appointments' handler does.
 
 ## 4. Deploy
 
@@ -123,9 +131,9 @@ Host it anywhere reachable over HTTPS. Appointments is one CDK stack (Lambda + F
 
 ```
 rudi login                              # once, opens the dashboard
-rudi plugin publish                     # private to your team
+rudi plugin publish .                   # private to your team
 rudi plugin share <slug> --team <teamID or invite email>
-rudi plugin publish --public            # submit for Datability review
+rudi plugin publish . --public         # submit for Datability review
 rudi plugin status <slug>
 ```
 
@@ -133,7 +141,7 @@ The receiving team opens **Plugins → Marketplace → Shared with you**, fills 
 
 ## Checklist
 
-- `rudi plugin validate` passes; `rudi plugin test <tool>` works against the real server.
+- `rudi plugin validate .` passes; `rudi plugin test <tool> .` works (see the signing gap in step 3).
 - A request without a valid `Rudi-Signature` gets 401; a replay older than 5 minutes does too.
 - Every tool failure is returned as `isError: true` with a readable message.
 - `change_data` is used for anything that writes; the tool itself never reports a pending request as done.

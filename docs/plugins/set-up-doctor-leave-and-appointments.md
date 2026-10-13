@@ -10,7 +10,7 @@ Goal: your assistant answers **"When is Dr. X free?"** from your clinic-hours fi
 Time: about 20 minutes. Who: a team admin. ภาษาไทย: [ตั้งค่า Doctor Leave + Appointments](./set-up-doctor-leave-and-appointments-th.md)
 
 :::note Preview
-**Plugins** is switched on per team. If you do not see the bag icon in the left bar, ask Datability to turn it on for your team (one setting, no wait).
+**Plugins** is switched on per team. If you do not see the bag icon in the left bar, ask Datability to turn it on for your team.
 Screenshots are from a demo team with made-up data.
 
 Doctor Leave reads the one leave feed Datability built it for. If your hospital's leave system is different, ask Datability before you start.
@@ -51,7 +51,7 @@ Rules the system follows:
 - A row with an empty name or empty schedule is skipped. A schedule written in English weekdays is **not** read.
 - `.xlsx`: only the **first sheet** is read (`.xls` is not supported: save as `.xlsx`). `.csv`: must be UTF-8 (in Excel: Save As → CSV UTF-8, or Thai text breaks). Max 25 MB.
 
-Upload the file in **Feed Datasource → My Documents** (step 1 of your assistant), in any folder. You pick it from a list in step 4, so there is no path to type. To change the schedule later, delete the old file and upload the new one under the same name;
+Upload the file in **Feed Datasource → My Documents** (step 1 of your assistant), in any folder. You pick it from a list in step 4, so there is no path to type. To change the schedule later, delete the old file and upload the new one under the same name.
 
 ## 3. Add Doctor Leave
 
