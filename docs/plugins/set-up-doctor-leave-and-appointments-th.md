@@ -10,7 +10,7 @@ title: ตั้งค่า Doctor Leave และ Appointments
 เวลา: ประมาณ 20 นาที ผู้ทำ: แอดมินของทีม English: [Set up Doctor Leave and Appointments](./set-up-doctor-leave-and-appointments.md)
 
 :::note อยู่ระหว่างทยอยเปิดใช้
-เมนู **Plugins** ยังเปิดให้ทีละทีม ถ้าไม่เห็นไอคอนถุงที่แถบซ้าย ให้แจ้ง Datability เปิดให้ทีมคุณ
+เมนู **Plugins** เปิดเป็นรายทีม ถ้าไม่เห็นไอคอนถุงที่แถบซ้าย ให้แจ้ง Datability เปิดให้ทีมคุณ (ตั้งค่าครั้งเดียว ไม่ต้องรอ)
 ภาพประกอบมาจากทีมสาธิตที่ใช้ข้อมูลสมมติ
 
 Doctor Leave อ่านจาก feed วันลาเพียงแบบเดียวที่ Datability สร้างไว้ ถ้าระบบวันลาของโรงพยาบาลคุณต่างออกไป ให้ถาม Datability ก่อนเริ่ม
@@ -51,7 +51,7 @@ Doctor Leave อ่านจาก feed วันลาเพียงแบบ�
 - แถวที่ชื่อหรือตารางว่างจะถูกข้าม ตารางที่เขียนเป็นวันภาษาอังกฤษ **อ่านไม่ได้**
 - `.xlsx` อ่านเฉพาะ **ชีตแรก** (ไม่รองรับ `.xls` ให้บันทึกเป็น `.xlsx`) ส่วน `.csv` ต้องเป็น UTF-8 (ใน Excel: Save As → CSV UTF-8 ไม่เช่นนั้นภาษาไทยเพี้ยน) ขนาดไม่เกิน 25 MB
 
-อัปโหลดไฟล์ที่ **Feed Datasource** (ขั้นแรกของผู้ช่วย) ง่ายที่สุด: อัปโหลดที่ระดับบนสุด ไม่ต้องสร้างโฟลเดอร์ พาธจะเป็น `txt/schedule.xlsx` (ทุกพาธ **ขึ้นต้นด้วย `txt/`** ซึ่งหน้าจอไม่แสดง) ถ้าวางในโฟลเดอร์ที่สร้างเอง ให้ใส่ชื่อโฟลเดอร์ด้วย เช่น `txt/doctors/schedule.xlsx` ถ้าจะเปลี่ยนตาราง ให้ลบไฟล์เก่าใน Feed Datasource แล้วอัปโหลดไฟล์ใหม่ชื่อและพาธเดิม
+อัปโหลดไฟล์ที่ **Feed Datasource → My Documents** (ขั้นแรกของผู้ช่วย) จะวางในโฟลเดอร์ไหนก็ได้ ขั้น 4 คุณเลือกไฟล์จากรายการ จึงไม่ต้องพิมพ์พาธ ถ้าจะเปลี่ยนตาราง ให้ลบไฟล์เก่าแล้วอัปโหลดไฟล์ใหม่ชื่อเดิม
 
 ## 3. เพิ่ม Doctor Leave
 
@@ -71,12 +71,11 @@ Doctor Leave อ่านจาก feed วันลาเพียงแบบ�
    - `get_doctor_schedule` (Read only): ช่วงเวลาว่างตามช่วงวันที่ (ไม่เกิน 31 วัน) ต่อแพทย์หรือแผนก
    - `get_my_bookings` (Read only): คำขอจองของแชทนี้
    - `request_booking` (**Mutation**): ส่งคำขอสถานะ **pending** ให้โรงพยาบาล ไม่เคยยืนยันการจองเอง เจ้าหน้าที่ยืนยันภายหลัง
-2. กรอก 2 ช่อง (ดู[ข้อจำกัดในปัจจุบัน](#ข้อจำกัดในปัจจุบัน)):
-   - **Clinic hours file**: พาธจากขั้น 2 เช่น `txt/schedule.xlsx`
-   - **Doctor leave source**: `<plugin id>.get_doctor_leave` เปิด Doctor Leave จาก **Marketplace → Shared with you** (ไม่ใช่จาก My plugins) แล้วคัดลอกส่วนที่ตามหลัง `/detail/` ในแถบที่อยู่: `…/plugins/detail/<plugin id>`
-3. เลือก **Use in** แล้วกด **Add**
-
-![ขั้น 4](../../static/img/plugins/self-serve/03-add-appointments.png)
+2. เลือกในสองช่อง (กดช่อง แล้วเลือกจากรายการ id จริงแสดงเป็น tooltip เท่านั้น):
+   - **Clinic hours file**: เปิด **My Documents** เลือกไฟล์ตารางของคุณ เลือกได้เฉพาะ `.xlsx` และ `.csv` ไฟล์อื่นจะเป็นสีจาง ถ้าขึ้น **No documents yet** ให้อัปโหลดไฟล์ก่อน (มีลิงก์ไป Feed Datasource)
+   - **Doctor leave source**: แสดงเครื่องมือของ plugin ที่ทีมเพิ่มไว้แล้ว เลือก **Doctor Leave → `get_doctor_leave`** ถ้าขึ้น **No other plugin added yet** ให้เพิ่ม Doctor Leave ก่อน (ขั้น 3) plugin จะเรียกได้เฉพาะเครื่องมือที่คุณเลือก
+   - ถ้าเห็นช่อง **HN check source** (ไม่บังคับ) ให้เว้นว่างไว้ เว้นแต่ Datability แจ้งเป็นอื่น
+3. เลือก **Use in** แล้วกด **Add** ปุ่ม **Add** จะกดไม่ได้จนกว่าจะเลือกสองช่องที่จำเป็นครบ
 
 ## 5. รอ Datability ยืนยัน
 
@@ -95,9 +94,7 @@ Appointments เป็น plugin ที่ Datability โฮสต์ หลั�
 ![ขั้น 6](../../static/img/plugins/self-serve/07-step3-plugins.png)
 
 - สวิตช์เป็นแบบรายตัว plugin ปิดเครื่องมือทีละตัวไม่ได้ ดังนั้น `request_booking` มาพร้อม Appointments
-- ที่ **Custom Prompt** เขียนคำสั่งเป็นภาษาปกติ เช่น *"ห้ามบอกว่าการจองยืนยันแล้ว ให้บอกว่าโรงพยาบาลจะยืนยันกลับ"* การพิมพ์ `@` ตอนนี้แสดงเฉพาะเครื่องมือในตัว (RAG, CSV, Web Search) เครื่องมือของ plugin จะถูกใช้เองเมื่อเกี่ยวข้อง
-
-![ขั้น 6b](../../static/img/plugins/self-serve/08-step3-at-menu.png)
+- ที่ **Custom Prompt** เขียนคำสั่งเป็นภาษาปกติ เช่น *"ห้ามบอกว่าการจองยืนยันแล้ว ให้บอกว่าโรงพยาบาลจะยืนยันกลับ"* พิมพ์ `@` เพื่อแทรกเครื่องมือของ plugin ตามชื่อ (เช่น **Appointments · get_doctor_schedule**) คู่กับเครื่องมือในตัว (RAG, CSV, Web Search) เมนู `@` แสดงเฉพาะเครื่องมือของ plugin ที่ active เปิดสวิตช์ให้ผู้ช่วยนี้ และไม่ใช่ **Down** Appointments จะปรากฏหลังยืนยันเสร็จเท่านั้น เครื่องมือยังถูกใช้เองเมื่อเกี่ยวข้อง ดังนั้น `@` ไม่บังคับ
 
 ## 7. ทดสอบใน Playground
 
@@ -123,8 +120,8 @@ Appointments เป็น plugin ที่ Datability โฮสต์ หลั�
 | **Waiting for verification** นานผิดปกติ | Datability ยังไม่ได้ตั้งค่ากุญแจ | ส่งข้อมูลตามหัวข้อด้านล่าง |
 | ป้าย **Down** (แดง) | โทเคนถูกปฏิเสธหรือบริการหยุด เครื่องมือถูกซ่อน | ขอโทเคนใหม่จาก IT โรงพยาบาลแล้วส่งให้ Datability (ปุ่มแดง **Update connection** ยังใช้ไม่ได้) |
 | **Update available** | มีเวอร์ชันใหม่ | ขอให้ Datability อัปเกรด |
-| "could not fetch clinic hours" | พาธผิด หรือไฟล์ไม่อยู่ในเอกสารของทีม | ตรวจพาธใน Feed Datasource |
-| "could not fetch doctor leave" | ยังไม่ได้เพิ่ม Doctor Leave, เป็น Down หรือ id ผิด | ดูที่ **My plugins** กรอก `<plugin id>.get_doctor_leave` ใหม่ |
+| "could not fetch clinic hours" | ไฟล์ที่เลือกไว้ถูกย้าย เปลี่ยนชื่อ หรือลบ | เปิด plugin แล้วเลือกไฟล์ใหม่ |
+| "could not fetch doctor leave" | Doctor Leave ถูกลบ เป็น Down หรือไม่ใช่เครื่องมือที่เลือกไว้ | ดูที่ **My plugins** แล้วเลือก **Doctor Leave → `get_doctor_leave`** ใหม่ |
 | "No doctor matching … Did you mean" | ชื่อไม่ตรงกับในไฟล์ | ใช้ชื่อที่ระบบแนะนำ หรือแก้ไฟล์ |
 | "date range too long" | ช่วงเกิน 31 วัน | ถามช่วงที่สั้นลง |
 | ทุกคนขึ้น *ไม่มีเวลาออกตรวจ* | อ่านตารางไม่ออก (เช่น ใช้วันภาษาอังกฤษ) | เขียนใหม่ตาม[รูปแบบด้านบน](#2-เตรียมไฟล์ตารางแพทย์) |
@@ -132,10 +129,9 @@ Appointments เป็น plugin ที่ Datability โฮสต์ หลั�
 
 ## ข้อจำกัดในปัจจุบัน
 
-- ยังไม่มีตัวเลือกไฟล์/เครื่องมือ (picker): สองช่องของ Appointments เป็นกล่องข้อความ ต้องพิมพ์พาธและ id เอง
 - เพิ่ม plugin จากแค็ตตาล็อกสาธารณะไม่ได้ Datability ต้องแชร์ให้ก่อน
 - Appointments ต้องให้ Datability ยืนยันครั้งแรก
-- ปิดเครื่องมือทีละตัวไม่ได้ และ `@` ไม่แสดงเครื่องมือของ plugin
+- ปิดเครื่องมือทีละตัวไม่ได้ (สวิตช์เป็นรายตัว plugin)
 - ปุ่มแดง **Update connection** ของ plugin ที่เป็น Down ยังไม่ทำงาน
 
 ## ถ้าติดปัญหา ส่งข้อมูลนี้ให้ Datability

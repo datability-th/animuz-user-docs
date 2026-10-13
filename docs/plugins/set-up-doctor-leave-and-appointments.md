@@ -10,8 +10,8 @@ Goal: your assistant answers **"When is Dr. X free?"** from your clinic-hours fi
 Time: about 20 minutes. Who: a team admin. ภาษาไทย: [ตั้งค่า Doctor Leave + Appointments](./set-up-doctor-leave-and-appointments-th.md)
 
 :::note Preview
-The **Plugins** menu is still rolling out. If you do not see the bag icon in the left bar, ask Datability to switch it on for your team.
-Screenshots below are from a demo team with made-up data.
+**Plugins** is switched on per team. If you do not see the bag icon in the left bar, ask Datability to turn it on for your team (one setting, no wait).
+Screenshots are from a demo team with made-up data.
 
 Doctor Leave reads the one leave feed Datability built it for. If your hospital's leave system is different, ask Datability before you start.
 :::
@@ -51,7 +51,7 @@ Rules the system follows:
 - A row with an empty name or empty schedule is skipped. A schedule written in English weekdays is **not** read.
 - `.xlsx`: only the **first sheet** is read (`.xls` is not supported: save as `.xlsx`). `.csv`: must be UTF-8 (in Excel: Save As → CSV UTF-8, or Thai text breaks). Max 25 MB.
 
-Upload the file in **Feed Datasource** (step 1 of your assistant). Simplest: upload it at the top level, no folder. Its path is then `txt/schedule.xlsx` (every path **starts with `txt/`**, which the tree does not show). If you put it in a folder you created, add the folder name: `txt/doctors/schedule.xlsx`. To change the schedule later, delete the old file in Feed Datasource and upload the new one under the same name and path.
+Upload the file in **Feed Datasource → My Documents** (step 1 of your assistant), in any folder. You pick it from a list in step 4, so there is no path to type. To change the schedule later, delete the old file and upload the new one under the same name;
 
 ## 3. Add Doctor Leave
 
@@ -71,12 +71,11 @@ Leave data is refreshed twice a day (06:00 and 18:00, Bangkok time), so a leave 
    - `get_doctor_schedule` (Read only): free windows for a date range (max 31 days), per doctor or department.
    - `get_my_bookings` (Read only): this chat's own booking requests.
    - `request_booking` (**Mutation**): sends a **pending** request to the hospital. It never confirms a booking; staff confirm afterwards.
-2. Fill the two fields (see [Known limitations](#known-limitations-today)):
-   - **Clinic hours file**: the path from step 2, e.g. `txt/schedule.xlsx`.
-   - **Doctor leave source**: `<plugin id>.get_doctor_leave`. Open Doctor Leave from **Marketplace → Shared with you** (not from My plugins) and copy what follows `/detail/` in the address bar: `…/plugins/detail/<plugin id>`.
-3. Choose **Use in**, then **Add**.
-
-![Step 4](../../static/img/plugins/self-serve/03-add-appointments.png)
+2. Fill the two pickers (click the field, choose from the list; the raw id is shown only as a tooltip):
+   - **Clinic hours file**: opens **My Documents**. Pick your schedule file. Only `.xlsx` and `.csv` can be chosen; other files are greyed out. If the list says **No documents yet**, upload the file first (the link takes you to Feed Datasource).
+   - **Doctor leave source**: lists the tools of plugins your team has already added. Pick **Doctor Leave → `get_doctor_leave`**. If it says **No other plugin added yet**, add Doctor Leave first (step 3). The plugin can call only the tool you pick.
+   - If you also see an optional **HN check source**, leave it empty unless Datability tells you otherwise.
+3. Choose **Use in**, then **Add**. **Add** stays disabled until both required pickers are filled.
 
 ## 5. Wait for Datability to verify
 
@@ -95,9 +94,7 @@ Open your assistant → **Step 3: Play & Design** → **Equipped tools → Plugi
 ![Step 6](../../static/img/plugins/self-serve/07-step3-plugins.png)
 
 - The switch is per plugin. Individual tools cannot be turned off here, so `request_booking` comes with Appointments.
-- In the **Custom Prompt**, add instructions in plain words, e.g. *"Never say a booking is confirmed. Tell the patient the hospital will confirm."* Typing `@` only lists built-in tools (RAG, CSV, Web Search) today; plugin tools are used automatically when relevant.
-
-![Step 6b](../../static/img/plugins/self-serve/08-step3-at-menu.png)
+- In the **Custom Prompt**, write instructions in plain words, e.g. *"Never say a booking is confirmed. Tell the patient the hospital will confirm."* Type `@` to insert a plugin tool by name (for example **Appointments · get_doctor_schedule**) next to the built-in tools (RAG, CSV, Web Search). The `@` menu lists only tools of plugins that are active, switched on for this assistant and not **Down**; Appointments appears only after verification. Tools are also used automatically when relevant, so `@` is optional.
 
 ## 7. Test in the Playground
 
@@ -123,8 +120,8 @@ In the chat, the assistant may paraphrase errors, so the wording can differ from
 | **Waiting for verification** for long | Datability has not set the secure key yet | Send the support details below |
 | Plugin badge **Down** (red) | Token rejected or service stopped; tools are hidden | Get a fresh token from hospital IT and send it to Datability (the red **Update connection** button does not work yet) |
 | **Update available** | A newer version exists | Ask Datability to upgrade |
-| "could not fetch clinic hours" | Wrong path, or the file is not in your documents | Re-check the path in Feed Datasource |
-| "could not fetch doctor leave" | Doctor Leave is not added, is Down, or the id is wrong | Check **My plugins**; re-enter `<plugin id>.get_doctor_leave` |
+| "could not fetch clinic hours" | The picked file was moved, renamed or deleted | Open the plugin, pick the file again |
+| "could not fetch doctor leave" | Doctor Leave was removed, is Down, or is not the tool picked | Check **My plugins**; pick **Doctor Leave → `get_doctor_leave`** again |
 | "No doctor matching … Did you mean" | Name differs from the file | Use a suggested name or fix the file |
 | "date range too long" | More than 31 days | Ask for a shorter range |
 | Everyone shows *no clinic hours* | Schedule text not understood (e.g. English weekdays) | Rewrite in the [format above](#2-prepare-the-doctor-schedule-file) |
@@ -132,10 +129,9 @@ In the chat, the assistant may paraphrase errors, so the wording can differ from
 
 ## Known limitations (today)
 
-- No file or tool **picker** yet: the two Appointments fields are plain text boxes (paths and ids typed by hand).
 - Plugins cannot be added from a public catalogue; Datability shares them first.
 - Appointments needs Datability's one-time verification.
-- Tools cannot be switched off one by one; `@` does not list plugin tools.
+- Tools cannot be switched off one by one (the switch is per plugin).
 - The red **Update connection** button on a Down plugin does nothing yet.
 
 ## If you are stuck, send Datability
