@@ -60,7 +60,7 @@ tools:
 
 - `kind: change_data` tools always ask the user to confirm and are shown with a **Mutation** badge.
 - `type: file | folder | tool` in `configSchema` become the pickers on the Add page, and the picked value becomes the **scope** of the call token: your plugin can read that file and call that one tool, nothing else.
-- Check it: `rudi plugin validate .` (the folder holding `plugin.yaml`). `rudi plugin test <tool> .` calls your real endpoint (config via `--config` or `RUDI_PLUGIN_*`; a `change_data` tool also needs `--allow-write`). See the signing caveat in step 3.
+- Check it: `rudi plugin validate .` (the folder holding `plugin.yaml`). `rudi plugin test <tool> .` calls your real endpoint (config via `--config` or `RUDI_PLUGIN_*`; a `change_data` tool also needs `--allow-write`).
 
 ## 2. Build the server
 
@@ -71,7 +71,7 @@ import base64, json
 from rudi_plugin_sdk import RudiApiError, rudi, verify
 
 # Yours to write: respond(), error(), result(), TOOL_DEFINITIONS, run_tool(), SIGNING_SECRET,
-# PLATFORM_API_URL (the Platform API base URL Datability gives you; Appointments reads it from an env var).
+# PLATFORM_API_URL (the Rudi Platform API base URL; Appointments reads it from an env var).
 
 def read_body(event):  # Function URLs may base64-encode the body: decode BEFORE verifying
     body = event.get("body") or ""
@@ -119,9 +119,9 @@ SDKs live in the `rudi-mcp` repo: `sdk/plugin-sdk-py` (`rudi_plugin_sdk`) and `s
 ## 3. Signing and `verifiesSignature`
 
 - `Rudi-Signature: t=<unix seconds>,v1=<hex HMAC-SHA256>` over `"<t>." + raw body bytes`. `verify()` checks the HMAC (constant time) and rejects a timestamp more than 5 minutes off. Always verify the **raw bytes**, before any JSON re-encoding.
-- Rudi mints a **signing secret per installation** (each team that adds your plugin gets its own) and returns it **once**, base64-encoded (32 bytes), in the Add response. The dashboard does not display it. Pass the exact string to `verify()`; do not decode it yourself. Your server must hold one secret per installation, and **self-service delivery of that secret to a plugin author does not exist yet** (tracked in rudi#504, M1.5): for Datability-hosted plugins an operator stores it (Appointments reads it from an SSM SecureString) and redeploys; if you host your own, ask Datability to relay it.
+- Rudi mints a **signing secret per installation** (each team that adds your plugin gets its own) and returns it **once**, base64-encoded (32 bytes), in the Add response. The dashboard does not display it. Pass the exact string to `verify()`; do not decode it yourself. Your server must hold one secret per installation, and **self-service delivery of that secret to a plugin author does not exist yet** (planned): for Datability-hosted plugins an operator stores it (Appointments reads it from an SSM SecureString) and redeploys; if you host your own, contact Datability.
 - Because your server verifies every request, it cannot pass Add's pre-install connection check with a secret it has not received yet. Setting **`verifiesSignature: true`** tells Rudi to skip that check: the install is saved as **Waiting for verification** with the tools off. Once the secret is stored, the team presses **Check again**; Rudi re-runs its connection check, signed with that secret, and the plugin becomes **Connected** when it passes.
-- **Known gap:** `rudi plugin publish` (for `runtime: mcp`) and `rudi plugin test` call your server's `initialize` and `tools/list` **without** a signature, so a server that rejects every unsigned call will fail them. Either let those two metadata methods through unsigned on a staging build (never `tools/call`), or ask Datability to publish for you. This is a workaround, not what Appointments' handler does.
+- **Known gap:** `rudi plugin publish` for `runtime: mcp` calls your server's `initialize` and `tools/list` **without** a signature (it snapshots your tool list), so a server that rejects every unsigned call fails the publish. Appointments' own handler does reject them, and this page does not yet document how it was published. Unverified workaround: let those two metadata methods through unsigned on a staging build (never `tools/call`). Check with Datability before relying on it.
 
 ## 4. Deploy
 
@@ -141,7 +141,7 @@ The receiving team opens **Plugins → Marketplace → Shared with you**, fills 
 
 ## Checklist
 
-- `rudi plugin validate .` passes; `rudi plugin test <tool> .` works (see the signing gap in step 3).
+- `rudi plugin validate .` passes (see the signing gap in step 3 for publish and test).
 - A request without a valid `Rudi-Signature` gets 401; a replay older than 5 minutes does too.
 - Every tool failure is returned as `isError: true` with a readable message.
 - `change_data` is used for anything that writes; the tool itself never reports a pending request as done.
