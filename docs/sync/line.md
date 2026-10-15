@@ -89,7 +89,7 @@ title: LINE Official Account
 
 ![Select Messaging API](../../static/img/LineOA/select_messaging_api.png)
 
-14. เลื่อนลงไปด้านล่างสุด แล้วคลิกปุ่ม Issue เพื่อสร้าง Access Token
+14. เลื่อนลงไปด้านล่างสุด ที่หัวข้อ **Channel access token (long-lived)** แล้วคลิกปุ่ม Issue เพื่อสร้าง Access Token
 
 ![Issue For Generate Access Token](../../static/img/LineOA/generate_access_token.png)
 
@@ -113,7 +113,7 @@ title: LINE Official Account
 
 ![New Social Media](../../static/img/new_social_media.png)
 
-18. เลือก Assistant
+18. เลือก Assistant (ไม่บังคับ — หากยังไม่เลือก ข้อความจะเข้า Inbox ให้ทีมตอบเอง และเลือกภายหลังได้)
 
 ![Select Assistant](../../static/img/select_assistant.png)
 
